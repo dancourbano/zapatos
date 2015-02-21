@@ -1,0 +1,71 @@
+@(lista: java.util.List[Admin])
+
+@import helper._
+
+@main("Control Acceso Usuarios") {
+    <div class="page-header">
+        <h2>  Listado de Administradores </h2>
+    </div>
+    @if(flash.containsKey("success")) {
+        <h3 style="color: green">
+
+        </h3>
+    }
+
+    <div class="row-fluid">
+
+        <div class="span8"></div>
+        <div class="span2">
+            <div class="btn-group pull-right">
+                <a href="@routes.Admins.create()" class="btn btn-primary dropdown-toggle" style="margin: 0 0em 2em 0;"><i class="icon-white icon-plus"></i>Agregar Admin</a>
+            </div>
+
+        </div>
+        <div class="span2">
+            <div class="btn-group pull-right">
+                <a href="@routes.Roles.create()" class="btn btn-primary dropdown-toggle" style="margin: 0 5em 2em 0;"><i class="icon-white icon-plus"></i>Agregar rol</a>
+            </div>
+
+        </div>
+    </div>
+
+    <table  id="example" class="table table-striped table-bordered"  width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Direccion</th>
+                <th>Estado</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Usuario</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+        @for(registro <- lista) {
+            <tr class='webgrid-row-style'>
+                <td>@registro.id_cliente</td>
+                <td>@registro.nombre</td>
+                <td>@registro.apellido</td>
+                <td>@registro.direccion</td>
+                <td>@Html(registro.getEstado(registro.estado))</td>
+                <td>@registro.email</td>
+                <td>@registro.getRole(registro.role.id).rol</td>
+                <td>@registro.usuario</td>
+
+
+
+            </tr>
+        }
+        </tbody>
+    </table>
+
+
+
+}

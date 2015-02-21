@@ -1,0 +1,41 @@
+@(id: Long,formulario: play.data.Form[Zapato])
+
+@import helper._
+
+@main("Control Zapatos") {
+
+
+
+    <div class="page-header">
+        <h2> Editar Zapato</h2>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+        @form(routes.Zapatos.update(id),'class->"form-horizontal") {
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Modelo</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("modelo").value" name="@formulario("modelo").name"  class="form-control" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Talla</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("talla").value" name="@formulario("talla").name"  class="form-control" />
+                    </div>
+                </div>
+
+
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-primary" value="Guardar"> -
+                    <a href="@routes.Zapatos.index"> <input type="button" value="Cancelar"> </a>
+                </div>
+            </fieldset>
+        }
+        </div>
+    </div>
+}

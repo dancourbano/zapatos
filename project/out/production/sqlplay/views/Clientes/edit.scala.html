@@ -1,0 +1,105 @@
+@(id: Long,formulario: play.data.Form[Cliente])
+
+@import helper._
+
+@main("Control CLiente") {
+
+
+
+    <div class="page-header">
+        <h2> Editar Cliente</h2>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+        @form(routes.Clientes.update(id),'class->"form-horizontal") {
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Nombre</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("nombre").value" name="@formulario("nombre").name"  class="form-control" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Apellidos</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("apellido").value" name="@formulario("apellido").name"  class="form-control" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Direccion</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("direccion").value" name="@formulario("direccion").name"  class="form-control" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+
+
+                            @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+
+
+
+                                @select(
+                                    formulario("estado"),
+                                    options=Seq("1"->"Activo", "0"->"Inactivo"),
+                                    '_label -> "Estado:",
+                                    '_class->"controls",
+                                    '_id->"selectnuevo",
+                                    '_showConstraints -> false)
+
+                </div>
+
+                <div class="control-group">
+                    <label class="col-sm-6 control-label">Telefono</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("telefono").value" name="@formulario("telefono").name"  class="form-control" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="col-sm-6 control-label">Email</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" value="@formulario("email").value" name="@formulario("email").name"  class="form-control" />
+                    </div>
+                </div>
+
+                @* Select(
+                    formulario("usuario.id_usuario"),
+                    options(Usuario.options),
+                    '_label -> "Usuario:",
+                    '_class->"controls",
+                    '_id->"selectnuevo",
+                    '_showConstraints -> false)
+                *@
+                    <div class="control-group">
+                        <label class="col-sm-6 control-label">Usuario</label>
+                        @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                        <div class="controls">
+                            <input type="text" name="@formulario("usuario.usuario").name" value="@formulario("usuario.usuario").value"  class="form-control" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="col-sm-6 control-label">Contraseña</label>
+                        @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                        <div class="controls">
+                            <input type="password" name="@formulario("usuario.password").name" value="@formulario("usuario.usuario").value"  class="form-control" />
+                        </div>
+                    </div>
+
+
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-primary" value="Guardar"> -
+                    <a href="@routes.Clientes.index"> <input type="button" value="Cancelar"> </a>
+                </div>
+            </fieldset>
+        }
+        </div>
+    </div>
+}

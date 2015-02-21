@@ -1,0 +1,38 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file               controllers.Assets.at(path="/public", file)
+#clientes
+GET         /clientes/index             controllers.Clientes.index()
+GET         /clientes/new               controllers.Clientes.create()
+POST        /clientes/new               controllers.Clientes.save()
+
+GET         /clientes/:id               controllers.Clientes.edit(id:Long)
+POST        /clientes/:id               controllers.Clientes.update(id:Long)
+POST        /clientes/delete/:id        controllers.Clientes.delete(id:Long)
+#home
+GET         /                           controllers.Home.index()
+#usuarios
+GET         /usuarios/index             controllers.Usuarios.index()
+GET         /usuarios/new               controllers.Usuarios.create()
+POST        /usuarios/new               controllers.Usuarios.save()
+#zapatos
+GET         /zapatos/index              controllers.Zapatos.index()
+GET         /zapatos/new                controllers.Zapatos.create()
+POST        /zapatos/new                controllers.Zapatos.save()
+GET         /zapatos/:id                controllers.Zapatos.edit(id:Long)
+POST        /zapatos/:id                controllers.Zapatos.update(id:Long)
+POST        /zapatos/delete/:id         controllers.Zapatos.delete(id:Long)
+#admins
+GET         /admins/index               controllers.Admins.index()
+GET         /admins/new                 controllers.Admins.create()
+POST        /admins/new                 controllers.Admins.save()
+#role
+
+GET         /roles/new                 controllers.Roles.create()
+POST        /roles/new                 controllers.Roles.save()

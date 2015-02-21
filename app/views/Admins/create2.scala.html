@@ -1,0 +1,35 @@
+@(formulario: play.data.Form[Role])
+
+@import helper._
+
+@main("Nuevo Role") {
+
+
+
+    <div class="page-header">
+        <h2> Nuevo Admin</h2>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+        @form(routes.Roles.save(),'class->"form-horizontal") {
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Rol</label>
+                    @* @inputText(formulario("nombre"),'_class->"form-control", '_showConstraints -> false, '_label -> "Nombre :")*@
+                    <div class="controls">
+                        <input type="text" name="@formulario("rol").name"  class="form-control" />
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-primary" value="Crear"> -
+                    <a href="@routes.Admins.index"> <input type="button" value="Cancelar"> </a>
+                </div>
+            </fieldset>
+        }
+        </div>
+    </div>
+}
